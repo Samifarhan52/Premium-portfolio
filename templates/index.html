@@ -141,6 +141,50 @@
     </div>
   </section>
 
+  <section class="section reveal" id="ai-chatbot">
+  <div class="section-head">
+    <span class="eyebrow">AI Portfolio Assistant</span>
+    <h2>Ask about my projects, skills, and services.</h2>
+  </div>
+
+  <div class="glass chatbot-panel">
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="chat-msg bot">
+        Hi, I’m Farhanulla’s portfolio assistant. Ask me about projects, skills, freelance services, NLP, data science, or how to contact him.
+      </div>
+    </div>
+
+    <div class="chatbot-input-row">
+      <input id="chatbotInput" type="text" placeholder="Ask: What projects has he built?">
+      <button id="chatbotSend" class="btn btn-primary">Ask</button>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="lead-capture">
+  <div class="section-head">
+    <span class="eyebrow">Client Lead Capture</span>
+    <h2>Tell me about your project.</h2>
+    <p class="subhead">This form sends leads directly to your inbox through Formspree.</p>
+  </div>
+
+  <form id="leadForm" class="glass lead-form" action="{{ FORMSPREE_ENDPOINT }}" method="POST">
+    <div class="form-grid">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="company" placeholder="Company / Brand">
+      <input type="text" name="budget" placeholder="Estimated Budget">
+      <input type="text" name="timeline" placeholder="Timeline">
+      <input type="text" name="project_type" placeholder="Project Type">
+    </div>
+
+    <textarea name="message" rows="6" placeholder="Tell me about your project..." required></textarea>
+
+    <button type="submit" class="btn btn-primary">Send Inquiry</button>
+    <p id="leadFormStatus" class="form-status"></p>
+  </form>
+</section>
+
   <footer class="site-footer"><p>© 2026 Shaik Mohammad Farhanulla Sami — Premium futuristic portfolio.</p></footer>
 </main>
 {% endblock %}
