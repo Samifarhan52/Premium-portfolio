@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block title %}Shaik Mohammad Farhanulla Sami | Premium Portfolio{% endblock %}
+{% block content %}
+<main>
+  <section class="hero reveal" id="top">
+    <div class="hero-copy" data-parallax="0.05">
+      <span class="eyebrow">Freelance Software Engineer | MCA Student</span>
+      <h1>Designing premium digital experiences with clean engineering, modern UI/UX, NLP thinking, and data-driven problem solving.</h1>
+      <p class="lead">I build polished web applications, interactive websites, and visually refined portfolio-grade products that balance aesthetics, usability, and technical clarity.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary magnetic">Explore Projects</a>
+        <a href="#contact" class="btn btn-secondary magnetic">Contact Me</a>
+      </div>
+      <div class="hero-pill-row">
+        <span class="pill">Python</span><span class="pill">Flask</span><span class="pill">UI/UX</span><span class="pill">NLP</span><span class="pill">Data Science</span>
+      </div>
+    </div>
+    <div class="hero-visual" data-parallax="0.1">
+      <div class="logo-orb glass">
+        <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="3D logo concept">
+        <div class="orb-glow"></div>
+      </div>
+      <div class="floating-card glass fc-one"><small>Personal Brand</small><strong>SF Monogram</strong><p>Custom logo concept built as a futuristic identity mark.</p></div>
+      <div class="floating-card glass fc-two"><small>Intelligent Web</small><strong>NLP + Data</strong><p>Semantic discovery, smart classification, and analytics-driven insights.</p></div>
+    </div>
+  </section>
+
+  <section class="section about reveal" id="about">
+    <div class="section-head"><span class="eyebrow">About Me</span><h2>Premium engineering meets polished product presentation.</h2></div>
+    <div class="about-grid">
+      <div class="glass about-card"><h3>Who I am</h3><p>I’m an MCA student and Freelance Software Engineer focused on building modern websites, responsive web applications, and refined user-facing digital experiences.</p></div>
+      <div class="glass about-card"><h3>How I work</h3><p>I care about clean code, thoughtful interaction design, smooth motion, premium UI systems, and clarity-driven user journeys that feel modern and effective.</p></div>
+      <div class="glass about-card"><h3>What makes me different</h3><p>I like integrating engineering, visual design, Natural Language Processing ideas, and data science-inspired thinking into websites that look strong and communicate value.</p></div>
+    </div>
+  </section>
+
+  <section class="section gateways reveal" id="gateways">
+    <div class="section-head"><span class="eyebrow">Smart Gateways</span><h2>Navigate my work through focused pathways.</h2></div>
+    <div class="gateway-grid">
+      <a href="#projects" class="glass gateway magnetic"><strong>Web Applications</strong><span>Interactive product-oriented builds</span></a>
+      <a href="#projects" class="glass gateway magnetic"><strong>Freelance Work</strong><span>Client-facing business website concepts</span></a>
+      <a href="#projects" class="glass gateway magnetic"><strong>Academic Projects</strong><span>Structured problem solving and execution</span></a>
+      <a href="#skills" class="glass gateway magnetic"><strong>UI/UX Concepts</strong><span>Visual hierarchy, interaction, and storytelling</span></a>
+      <a href="#nlp" class="glass gateway magnetic"><strong>NLP & Data Science</strong><span>Semantic search, categorization, and insights</span></a>
+      <a href="#contact" class="glass gateway magnetic"><strong>Work With Me</strong><span>Let’s build something impactful together</span></a>
+    </div>
+  </section>
+
+  <section class="section projects reveal" id="projects">
+    <div class="section-head"><span class="eyebrow">Featured Projects</span><h2>Flip, explore, and dive into my project work.</h2><p class="subhead">Hover each card to reveal details. Click to open the dedicated landing page.</p></div>
+    <div class="search-panel glass">
+      <div>
+        <label for="projectSearch">Natural language project search</label>
+        <input id="projectSearch" type="text" placeholder="Try: business website, academic project, mobility, UI/UX ...">
+      </div>
+      <div class="smart-tags" id="smartTags"></div>
+    </div>
+    <div class="project-grid">
+      {% for slug, project in projects.items() %}
+      <a href="{{ url_for('project_detail', slug=slug) }}" class="project-card-wrap" data-title="{{ project.title|lower }}" data-summary="{{ project.summary|lower }}" data-tags="{{ ' '.join(project.tags)|lower }}">
+        <article class="project-card">
+          <div class="project-card-inner">
+            <div class="project-face project-front glass">
+              <span class="project-badge">{{ project.subtitle }}</span>
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.summary }}</p>
+              <div class="project-tags">{% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+            </div>
+            <div class="project-face project-back glass">
+              <h3>{{ project.title }}</h3>
+              <ul>{% for feature in project.features %}<li>{{ feature }}</li>{% endfor %}</ul>
+              <span class="view-link">View Project →</span>
+            </div>
+          </div>
+        </article>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section skills reveal" id="skills">
+    <div class="section-head"><span class="eyebrow">Skills & Technologies</span><h2>Smooth 3D-inspired skill presentation.</h2></div>
+    <div class="skill-cluster">
+      <div class="skill-orb glass">Python</div><div class="skill-orb glass">Flask</div><div class="skill-orb glass">HTML</div><div class="skill-orb glass">CSS</div>
+      <div class="skill-orb glass">JavaScript</div><div class="skill-orb glass">UI/UX</div><div class="skill-orb glass">Responsive Design</div><div class="skill-orb glass">GitHub</div>
+      <div class="skill-orb glass">NLP</div><div class="skill-orb glass">Data Science</div><div class="skill-orb glass">ML Fundamentals</div><div class="skill-orb glass">Visualization</div>
+    </div>
+  </section>
+
+  <section class="section split-section reveal" id="nlp">
+    <div class="glass split-card">
+      <span class="eyebrow">NLP Capabilities</span><h2>Meaningful Natural Language Processing integration.</h2>
+      <ul class="feature-list"><li>Semantic project search using user intent keywords</li><li>Smart tag generation based on project themes</li><li>Keyword-aware project highlights</li><li>Project classification by domain and purpose</li><li>AI-style content summaries for discovery</li></ul>
+    </div>
+    <div class="glass split-card">
+      <span class="eyebrow">Data Science Capabilities</span><h2>Data-inspired storytelling and portfolio insights.</h2>
+      <ul class="feature-list"><li>Category breakdown cards</li><li>Technology frequency insights</li><li>Timeline-based project distribution</li><li>Skill clustering and recommendation logic</li><li>Analytics-style UI cards for portfolio exploration</li></ul>
+    </div>
+  </section>
+
+  <section class="section insights reveal" id="insights">
+    <div class="section-head"><span class="eyebrow">Portfolio Insights</span><h2>Data science-inspired analytics cards.</h2></div>
+    <div class="insight-grid">
+      <div class="glass insight-card">
+        <h3>Project Mix</h3>
+        <div class="bar-chart"><div style="--h:78%"><span>Business</span></div><div style="--h:56%"><span>Academic</span></div><div style="--h:64%"><span>Concept</span></div><div style="--h:71%"><span>UI/UX</span></div></div>
+      </div>
+      <div class="glass insight-card"><h3>Top Focus Areas</h3><div class="metric-list"><div><strong>UI/UX</strong><span>92%</span></div><div><strong>Web Apps</strong><span>88%</span></div><div><strong>NLP Thinking</strong><span>74%</span></div><div><strong>Data Insights</strong><span>69%</span></div></div></div>
+      <div class="glass insight-card"><h3>Technology Frequency</h3><p>Python, Flask, frontend design systems, semantic classification ideas, and structured data storytelling appear repeatedly across my portfolio direction.</p></div>
+    </div>
+  </section>
+
+  <section class="section timeline reveal" id="journey">
+    <div class="section-head"><span class="eyebrow">Timeline / Journey</span><h2>Growth through projects, design, and intelligent web experiences.</h2></div>
+    <div class="timeline-stack">
+      <div class="glass timeline-item"><span>2024</span><h3>Bike Rentals</h3><p>Built a structured final-year project with product-oriented thinking and user-flow design.</p></div>
+      <div class="glass timeline-item"><span>2025</span><h3>Freelance & concept work</h3><p>Worked on business website concepts and stronger visual presentation, including Pet Shop Website.</p></div>
+      <div class="glass timeline-item"><span>2026</span><h3>Premium portfolio direction</h3><p>Focusing on software engineering identity, advanced motion, and intelligent UI experiences with NLP/data-inspired layers.</p></div>
+    </div>
+  </section>
+
+  <section class="section why-work reveal">
+    <div class="section-head"><span class="eyebrow">Why Work With Me</span><h2>Modern frontend craftsmanship with strong visual thinking.</h2></div>
+    <div class="about-grid">
+      <div class="glass about-card"><h3>Premium design sense</h3><p>Clean hierarchy, modern light-mode interfaces, and a polished brand-first presentation style.</p></div>
+      <div class="glass about-card"><h3>Interactive web experiences</h3><p>Smooth loaders, motion systems, micro interactions, parallax, hover depth, and visual storytelling.</p></div>
+      <div class="glass about-card"><h3>Intelligent product thinking</h3><p>Interest in NLP and data science techniques for better navigation, discovery, and value communication.</p></div>
+    </div>
+  </section>
+
+  <section class="section contact reveal" id="contact">
+    <div class="glass contact-panel">
+      <span class="eyebrow">Contact Me</span><h2>Let’s build something impactful together.</h2>
+      <p>Reach out for freelance work, portfolio-quality websites, modern landing pages, and user-focused digital experiences.</p>
+      <div class="contact-links">
+        <a class="contact-link magnetic" href="https://wa.me/917676808068" target="_blank">WhatsApp</a>
+        <a class="contact-link magnetic" href="https://instagram.com/" target="_blank">Instagram</a>
+        <a class="contact-link magnetic" href=https://www.linkedin.com/in/shaik-sami-93a38726b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app target="_blank">LinkedIn</a>
+        <a class="contact-link magnetic" href="https://github.com/Samifarhan52" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><p>© 2026 Shaik Mohammad Farhanulla Sami — Premium futuristic portfolio.</p></footer>
+</main>
+{% endblock %}

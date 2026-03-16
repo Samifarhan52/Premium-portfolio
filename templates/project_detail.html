@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }} | Portfolio{% endblock %}
+{% block content %}
+<main class="detail-page">
+  <section class="section detail-hero reveal">
+    <a href="{{ url_for('home') }}#projects" class="back-link">← Back to Projects</a>
+    <div class="detail-grid">
+      <div class="glass detail-card">
+        <span class="eyebrow">{{ project.subtitle }}</span>
+        <h1>{{ project.title }}</h1>
+        <p class="lead">{{ project.summary }}</p>
+        <div class="project-tags">{% for tag in project.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+      </div>
+      <div class="glass detail-card">
+        <h3>Project Highlights</h3>
+        <ul class="feature-list">{% for feature in project.features %}<li>{{ feature }}</li>{% endfor %}</ul>
+      </div>
+    </div>
+  </section>
+  <section class="section reveal">
+    <div class="detail-grid">
+      <div class="glass detail-card"><span class="eyebrow">Case Study Snapshot</span><h2>Problem framing and user-first execution.</h2><p>This project reflects my approach to structuring digital experiences with clarity, visual balance, and purpose-driven interaction design.</p></div>
+      <div class="glass detail-card"><span class="eyebrow">Value Added</span><h2>Design + engineering alignment.</h2><p>I focused on visual hierarchy, navigation clarity, and scalable presentation so the experience feels polished, modern, and ready for real users or clients.</p></div>
+    </div>
+  </section>
+</main>
+{% endblock %}

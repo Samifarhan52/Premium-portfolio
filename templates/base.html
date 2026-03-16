@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>{% block title %}Farhanulla Portfolio{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="loader-mark"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo"></div>
+    <div class="loader-bar"><span></span></div>
+    <p>Loading premium experience...</p>
+  </div>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div id="bg3d"></div>
+
+  <header class="site-header">
+    <a class="brand" href="{{ url_for('home') }}">
+      <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo">
+      <div><strong>Farhanulla</strong><span>Freelance Software Engineer</span></div>
+    </a>
+    <nav>
+      <a href="{{ url_for('home') }}#about">About</a>
+      <a href="{{ url_for('home') }}#gateways">Gateways</a>
+      <a href="{{ url_for('home') }}#projects">Projects</a>
+      <a href="{{ url_for('home') }}#skills">Skills</a>
+      <a href="{{ url_for('home') }}#insights">Insights</a>
+      <a href="{{ url_for('home') }}#contact">Contact</a>
+    </nav>
+  </header>
+
+  {% block content %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
